@@ -1,0 +1,21 @@
+Below is a real development task from this repository's history, together with the real expert implementation for that task (the oracle diff).
+
+## Task description
+
+{task_desc}
+
+## Real implementation (Oracle Diff)
+
+commit: {sha_short} — {subject}
+
+```diff
+{real_diff}
+```
+
+Please study this commit in the context of the current repository (you can browse the repository source code in the workspace): understand why it is implemented this way, which modules and internal APIs it touches, and which repository conventions it follows. Then from it extract **experience that is specific to this repository and useful for future development**, and update it under the `{{SKILLS_DIR}}` directory.
+
+Our goal is to continuously accumulate development experience for this repository — for example, internal API usage, file organization conventions, architectural patterns, and common ways of making changes. This experience will help you complete similar tasks faster and more accurately in the future. For overly minor details (such as variable-naming preferences, comment style, etc.), you can ignore them.
+
+Update the experience under `{{SKILLS_DIR}}`; `SKILL.md` is the core file. If the content is too long, you may split it into sub-files at your discretion, putting different aspects of experience into different files or directories, keeping a clean hierarchy. Read the existing skill files thoroughly before changing them.
+
+Additionally, while analyzing, if you find that some experience in the existing skills contradicts the real implementation of this commit (meaning that experience is wrong or outdated), then consider deleting those previously accumulated incorrect skills, so they do not trip you up next time.

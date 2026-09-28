@@ -1,0 +1,20 @@
+[project]
+name = "learning-to-commit"
+version = "0.1.0"
+description = "Learning to Commit: next-commit prediction via online supervised contrastive reflection"
+readme = "README.md"
+license = "PolyForm-Noncommercial-1.0.0"
+requires-python = ">=3.11"
+dependencies = [
+    "claude-agent-sdk>=0.2.160",
+    "anthropic>=0.49",
+    "loguru>=0.7",
+    "python-dotenv>=1.0",
+    "tiktoken>=0.7",
+    "tqdm>=4.60",
+]
+
+[tool.uv]
+# Scripts are run from the repository root (python workflow/run_sequential.py ...);
+# the project itself is not installed as a package.
+package = false

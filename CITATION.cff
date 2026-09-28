@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use Learning to Commit, please cite the paper below. The title and authors follow the current manuscript; the arXiv identifier is stable across revisions."
+type: software
+license: PolyForm-Noncommercial-1.0.0
+title: "Learning to Commit"
+authors:
+  - family-names: Li
+    given-names: Mo
+  - family-names: Tan
+    given-names: Qitai
+  - family-names: Chen
+    given-names: Kai
+  - family-names: Cao
+    given-names: Ting
+  - family-names: Liu
+    given-names: Yunxin
+repository-code: "https://github.com/LearningToCommit/LearningToCommit"
+url: "https://learningtocommit.github.io/"
+preferred-citation:
+  type: generic
+  title: "Learning to Commit: Next-Commit Prediction via Online Supervised Contrastive Reflection"
+  authors:
+    - family-names: Li
+      given-names: Mo
+    - family-names: Tan
+      given-names: Qitai
+    - family-names: Chen
+      given-names: Kai
+    - family-names: Cao
+      given-names: Ting
+    - family-names: Liu
+      given-names: Yunxin
+  year: 2026
+  url: "https://arxiv.org/abs/2603.26664"
+  identifiers:
+    - type: other
+      value: "arXiv:2603.26664"
+      description: "arXiv preprint; primary category cs.SE"

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Experiment outputs
+output/
+
+# Prepared benchmarks: cloned upstream repos, snapshot tarballs, oracle diffs
+workdir/
+data/prepared/
+*.tar.gz
+
+# Toy example build artifacts
+examples/toy/build/
+
+# Data construction intermediates
+data_construction/runs/
+
+.DS_Store

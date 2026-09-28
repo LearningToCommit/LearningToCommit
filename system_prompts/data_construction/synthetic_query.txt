@@ -1,0 +1,18 @@
+We are conducting research on online learning. The background is that we believe traditional repo development contains a lot of development details and conventions that cannot be derived from static file states alone — they need to be learned from the history of commit operations. For example, when facing a bug, how to fix it can be learned from the patch of the real historical commit corresponding to that bug.
+
+Now I need you to use the information of the git commit below to reverse-synthesize a "task description" (in the style of an issue / task ticket). This task description will be given as input to an AI Agent so that it can implement the corresponding change in the code repository.
+
+Requirements:
+- Write in English, in the style of an issue description written by a project manager or development lead
+- Describe "what needs to be done" and "why it needs to be done", but do not reveal the concrete implementation (do not mention specific function names, class names, or file paths)
+- A developer familiar with the repo should, after reading it, understand the requirement and be able to implement it
+
+commit subject: {subject}
+commit body: {body}
+
+Below is the patch of this commit:
+========== patch begin ==========
+{patch}
+========== patch end ==========
+
+Now, based on the git commit information above, reverse-synthesize a "task description" (in the style of an issue / task ticket). This task description will be given as input to an AI Agent so that it can implement the corresponding change in the code repository. Please output the task description text directly.

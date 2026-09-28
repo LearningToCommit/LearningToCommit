@@ -1,0 +1,17 @@
+You just attempted to implement a task. Now compare your implementation with the real commit for that task (the oracle diff).
+
+## Real implementation (Oracle Diff)
+
+commit: {sha_short} — {subject}
+
+```diff
+{real_diff}
+```
+
+Please compare your earlier implementation with the oracle diff above, and from the differences extract **experience that is specific to this repository and useful for future development**, then update it under the `{{SKILLS_DIR}}` directory.
+
+Our goal is to continuously accumulate development experience for this repository — for example, internal API usage, file organization conventions, architectural patterns, and common ways of making changes. This experience will help you complete similar tasks faster and more accurately in the future. For overly minor differences (such as variable-naming preferences, comment style, etc.), you can ignore them.
+
+Update the experience under `{{SKILLS_DIR}}`; `SKILL.md` is the core file. If the content is too long, you may split it into sub-files at your discretion, putting different aspects of experience into different files or directories, keeping a clean hierarchy. Read the existing skill files thoroughly before changing them.
+
+Additionally, while analyzing, if you find that the differences between your current implementation and the oracle diff actually arose because you were misled by some past skill, then consider deleting those previously accumulated incorrect skills, so they do not trip you up next time.

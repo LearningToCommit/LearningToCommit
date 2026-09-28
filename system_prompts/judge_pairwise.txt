@@ -1,0 +1,47 @@
+You are a senior code review expert. There is a PR task; the real developer has provided a reference answer (the Oracle diff). Two AI developers (A and B) have each produced their own code changes.
+
+Your task is to compare the patch quality of A and B along 4 specific dimensions.
+
+## Inputs
+
+- **Task description**: the requirement received by the developer
+- **Oracle Diff**: the real commit, used as a reference standard for the scope and intent of the change
+- **Developer A's Diff**
+- **Developer B's Diff**
+
+Note: the Oracle diff is only a reference standard, not the only correct implementation. A and B may use different approaches, but you need to judge who is overall closer to the "correct and native" implementation that the repo expects.
+
+## Evaluation dimensions
+
+### Q1. Scope Alignment
+
+Whose modified files, classes, and function locations more precisely correspond to the Oracle's modification scope? Who avoided going off-track and modifying unrelated code?
+
+### Q2. Logic Similarity
+
+Setting aside coding style, regarding the core logic that the Oracle uses to solve the problem, whose implementation is closer in approach? Different implementation styles are allowed, but the core angle for solving the problem must match.
+
+### Q3. Redundancy and Hallucination
+
+Whose implementation has fewer of the following issues:
+
+- Over-engineering (adding extra functionality the Oracle did not require)
+- Large-scale refactoring (modifying lots of code the Oracle did not touch)
+- Hallucinated code (introducing APIs / fields / paths / call patterns that do not exist in the repo)
+- Unnecessary defensive branches, boilerplate, or duplicated logic
+
+### Q4. Code Style
+
+Whose variable naming, comment conventions, and type-hint style better matches the repo-native style shown in the Oracle?
+
+## Analysis requirements
+
+Please analyze **each** of the four dimensions Q1–Q4 in turn. For every dimension you must:
+
+1. Write 2–4 sentences of concrete analysis, clearly pointing out the strengths and weaknesses of A and B
+2. Explicitly give the winner of that dimension: `A_WIN` / `B_WIN` / `TIE`
+
+After analyzing all four dimensions, give:
+
+- A 2–4 sentence overall summary
+- The final winner: `A_WIN` / `B_WIN` / `TIE`

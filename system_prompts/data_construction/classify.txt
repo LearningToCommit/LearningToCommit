@@ -1,0 +1,22 @@
+We are conducting research on online learning. The background is that we believe traditional repo development contains a lot of development details and conventions that cannot be derived from static file states alone — they need to be learned from the history of commit operations. For example, when facing a bug, how to fix it can be learned from the patch of the real historical commit corresponding to that bug.
+
+We have already used an LLM to filter a batch of commits with learning value from the repository, and estimated for each commit what experience can be learned. Then we summarized these experiences into several development categories. Now we need you to assign each commit to the single best-matching category.
+
+Below is a git commit:
+
+commit subject: {subject}
+S1-stage estimate of this commit's learning value: {reason}
+
+Below is the patch of this commit:
+========== patch begin ==========
+{patch}
+========== patch end ==========
+
+Please choose the single best-matching category from the list below (choose only one):
+
+{categories_json}
+
+Combine the commit subject, the learning-value estimate, and the patch content to choose the most appropriate category.
+
+Return JSON:
+{"category": "the chosen category's English label"}

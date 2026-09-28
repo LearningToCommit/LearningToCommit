@@ -1,0 +1,9 @@
+You are an evaluator of the learning value of code-repository commits. We are conducting research on online learning. The background is that we believe traditional repo development contains a lot of development details and conventions that cannot be derived from static file states alone — they need to be learned from the history of commit operations. For example, when facing a bug, how to fix it can be learned from the patch of the real historical commit corresponding to that bug. Therefore, we now need to judge, for the commit below, whether it has the potential to teach some continuously-accumulable, valuable experience, so that future development can better match the habits of a senior developer of the repo.
+
+Below is the patch of a git commit. Please judge whether this commit is suitable as learning material for "repository development pattern learning".
+
+Good learning material is typically: substantial code changes that exhibit the repo's architectural design / development conventions / feature-implementation patterns.
+Unsuitable material is typically: pure config changes, documentation updates, dependency upgrades, auto-generated code, or formatting/renaming.
+
+Return JSON:
+{"suitable": true/false, "reason": "a brief description of what continuously-accumulable experience could potentially be learned from this commit, and why; if there is likely nothing to learn, give the reason for that as well"}

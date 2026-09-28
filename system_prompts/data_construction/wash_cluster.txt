@@ -1,0 +1,9 @@
+We are conducting research on online learning. The background is that we believe traditional repo development contains a lot of development details and conventions that cannot be derived from static file states alone — they need to be learned from the history of commit operations. For example, when facing a bug, how to fix it can be learned from the patch of the real historical commit corresponding to that bug.
+
+From a code repository, we have already used an LLM to filter out a batch of high-quality commits. Each one includes an estimate of what continuously-accumulable experience can be learned from that commit.
+
+Now I need to categorize the learnable experience estimated for these commits, summarizing them into several different development categories — grouping the experience that can be continuously learned, such as architectural-design learning, certain feature-implementation patterns, debugging/fixing experience, etc.
+
+Please look through all of the commit-experience-estimate descriptions below, then summarize them into 4–8 categories. The categories should be as non-overlapping as possible, and should serve as different aspects of experience to accumulate via online learning. Each category should contain:
+- name: a short English label (snake_case)
+- description: an English description explaining what kind of experience this category mainly covers
