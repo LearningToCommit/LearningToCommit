@@ -172,3 +172,5 @@ GitHub's **Cite this repository** menu uses the same paper metadata from [CITATI
 ## License
 
 The code is released under the [PolyForm Noncommercial License 1.0.0](LICENSE). It is free to use for research, education, and other noncommercial purposes. For commercial use, please contact Mo Li at [limo.research@gmail.com](mailto:limo.research@gmail.com). Third-party code and benchmark materials remain subject to their original licenses.
+
+Related work: [Skill Training](https://github.com/skilltraining-project/skill-training) learns an external skill library from human artifacts through corruption and reconstruction, without updating model weights.
