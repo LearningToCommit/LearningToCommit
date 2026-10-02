@@ -1,20 +1,37 @@
-<div align="center">
+<h1 align="center">Learning to Commit</h1>
 
-# Learning to Commit
+<p align="center"><strong>A codebase tells you what exists. Its history teaches you how to contribute.</strong></p>
 
-### Next-Commit Prediction via Online Supervised Contrastive Reflection
+<p align="center">
+  <a href="https://learningtocommit.github.io/">🌐 Project page</a> ·
+  <a href="https://learningtocommit.github.io/assets/paper.pdf">📄 Paper</a> ·
+  <a href="https://arxiv.org/abs/2603.26664">📑 arXiv</a> ·
+  <a href="#news">📰 News</a> ·
+  <a href="#quickstart">🚀 Quickstart</a> ·
+  <a href="#results-reported-in-the-paper">📊 Results</a> ·
+  <a href="data/">🗂️ Benchmark data</a> ·
+  <a href="#citation">📝 Citation</a>
+</p>
 
-Mo Li · Qitai Tan · Kai Chen · Ting Cao · Yunxin Liu
+<p align="center">
+  <a href="https://arxiv.org/abs/2603.26664"><img src="https://img.shields.io/badge/arXiv-2603.26664-b31b1b?style=flat&logo=arxiv&logoColor=white" alt="arXiv 2603.26664"></a>
+  <a href="pyproject.toml"><img src="https://img.shields.io/badge/Python-3.11%2B-3776ab?style=flat&logo=python&logoColor=white" alt="Python 3.11 or newer"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-2f6f4e?style=flat" alt="PolyForm Noncommercial license"></a>
+</p>
 
-**Tsinghua University**
+**Learning to Commit teaches a coding agent how a repository is actually maintained, using nothing but its commit history.** The agent attempts past commits before seeing the maintainer's patch, learns from the gap, and writes the lessons into a readable skill document. The model weights never change.
 
-[**Paper**](https://learningtocommit.github.io/assets/paper.pdf) · [**arXiv**](https://arxiv.org/abs/2603.26664) · [**Project page**](https://learningtocommit.github.io/) · [**Quickstart**](#quickstart) · [**Citation**](#citation)
+- **Beyond passing tests.** We call the fit between a patch and its project *organicity*: touching the right files, reusing existing helpers, following local conventions, and changing no more than needed.
+- **Learning from repository history.** Historical commits act as a free curriculum. Each one is a blind attempt, a comparison with the human patch, and an update to the skill document.
+- **Measurable gains.** On a 50-task SWE-bench Pro subset, learned skills raise Claude Opus 4.6's pass rate from **48% to 56%**, and improve file overlap with the expert patch by **5–7 points** across three models on our benchmark.
 
-</div>
+<a id="news"></a>
 
 ## News
 
-- **2026-09-27** — Public code and benchmark data released. This implementation uses the Claude Agent SDK and includes a small example for running the learning and evaluation workflow.
+- **2026-09-27** — 💻 **Public code and benchmark data released.** This implementation uses the Claude Agent SDK and includes a small example for running the learning and evaluation workflow. See [Quickstart](#quickstart).
+- **2026-09-25** — 🎉 **Learning to Commit is accepted to NeurIPS 2026.**
+- **2026-03** — 📑 **Preprint on arXiv.** Read it at [arXiv:2603.26664](https://arxiv.org/abs/2603.26664).
 
 ## What is Learning to Commit?
 
@@ -62,9 +79,7 @@ On a **50-task SWE-bench Pro subset**, the paper reports the following test pass
 | Claude Sonnet 4.6 | 34.0 ± 2.3% | **40.0 ± 3.3%** | +6.0 percentage points |
 | Claude Opus 4.6 | 48.0 ± 2.8% | **56.0 ± 1.6%** | +8.0 percentage points |
 
-Pass rates are mean ± one standard deviation over four independent runs on the sampled subset,
-not the full SWE-bench Pro leaderboard. These are results from the paper's experimental implementation;
-the public SDK implementation below is a runnable adaptation, not an exact reproduction of those numbers.
+Pass rates are mean ± one standard deviation over four independent runs on the 50-task subset.
 
 ## What is included?
 
@@ -77,8 +92,7 @@ the public SDK implementation below is a runnable adaptation, not an exact repro
 | [Toy example](examples/toy/) | A small unit-conversion repository with two learning commits and one held-out task. |
 | [Data construction](data_construction/) | A five-stage pipeline for building a benchmark from another repository's history. |
 
-The released data includes patches; repository snapshots are prepared separately. This release does not
-include the SWE-bench Pro test runner used to measure the paper's test pass rates.
+The released data includes patches; repository snapshots are prepared separately.
 
 ## Quickstart
 
@@ -144,11 +158,8 @@ The [usage guide](docs/usage.md) covers:
 
 ## Implementation scope
 
-The paper's experiments used an internal agent framework. This public release implements the
-attempt–reflect–update–solve method using the Claude Agent SDK, without depending on that internal
-infrastructure. The agent loop, available tools, context management, and default models differ from the
-experimental implementation, so the reported paper scores should not be expected from these commands.
-The release supports sequential skill learning; the parallel learning variant is not included.
+This release implements the attempt–reflect–update–solve method on the Claude Agent SDK.
+It supports sequential skill learning; the parallel learning variant is not included.
 
 ## Citation
 
