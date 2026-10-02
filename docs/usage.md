@@ -166,8 +166,7 @@ Step 3  post-run evaluation
 ├── docs/                                   usage guide and paper figure
 ├── data/
 │   ├── learning_to_commit_benchmark.jsonl   50 test tasks (5 repos × 10), diffs inlined
-│   ├── swebench_pro_tasks.jsonl             50 SWE-bench Pro tasks with 3 learning commits each
-│   └── swebench_pro_base_commits.json       base commit per SWE-bench Pro instance (public dataset)
+│   └── swebench_pro_tasks.jsonl             50 SWE-bench Pro tasks with 3 learning commits each
 ├── scripts/
 │   └── s1_prepare_benchmark.py              clone repos, build snapshots/diffs, write benchmark_tasks.jsonl
 ├── examples/toy/

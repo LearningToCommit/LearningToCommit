@@ -7,7 +7,7 @@ inline all diffs but not the repository snapshots. This script:
   1. clones each needed upstream repository (blobless clone) into <out-dir>/repos/<repo>;
   2. builds snapshot tarballs with `git archive`:
        - learning commits and Learning-to-Commit test tasks: the parent revision `<sha>~1`;
-       - SWE-bench Pro test tasks: the instance's base commit;
+       - SWE-bench Pro test tasks: the instance's `base_commit` field (from the public SWE-bench Pro dataset);
   3. writes every oracle / learning diff to <out-dir>/diffs/ (for Learning-to-Commit test tasks
      the released diff is checked against `git diff <sha>~1 <sha>`);
   4. emits <out-dir>/benchmark_tasks.jsonl with relative paths, ready for
@@ -50,9 +50,6 @@ UPSTREAM_URLS = {
     "qutebrowser": "https://github.com/qutebrowser/qutebrowser.git",
     "tutanota": "https://github.com/tutao/tutanota.git",
 }
-
-# SWE-bench Pro base commits (from the public SWE-bench Pro dataset), keyed by instance id.
-SWEBENCH_PRO_BASE_COMMITS = REPO_ROOT / "data" / "swebench_pro_base_commits.json"
 
 
 def git(args: list[str], cwd: Path, timeout: int = 3600, binary: bool = False):
@@ -137,15 +134,14 @@ def main():
         sys.exit(f"no tasks selected (repos in file: {sorted({r['repo'] for r in rows})})")
     print(f"{len(selected)} test task(s) from {sorted(per_repo)} -> {out_dir}", flush=True)
 
-    swe_base = json.loads(SWEBENCH_PRO_BASE_COMMITS.read_text()) if SWEBENCH_PRO_BASE_COMMITS.exists() else {}
     out_tasks, mismatches = [], 0
     for row in selected:
         repo_dir = ensure_clone(row["repo"], repos_dir)
         task_id = row["id"]
 
         # Test task snapshot revision.
-        if task_id in swe_base:
-            test_rev = resolve_commit(swe_base[task_id]["base_commit"], repo_dir)
+        if row.get("base_commit"):
+            test_rev = resolve_commit(row["base_commit"], repo_dir)
         else:
             m = re.fullmatch(r"commit_([0-9a-f]{7,40})", task_id)
             if not m:
